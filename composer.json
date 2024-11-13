@@ -1,0 +1,13 @@
+{
+    "name": "root/etape01",
+    "type": "project",
+    "authors": [
+        {
+            "name": "antoine"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.10",
+        "twig/intl-extra": "^3.10"
+    }
+}

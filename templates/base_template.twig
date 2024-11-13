@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="css/styles.css" rel="stylesheet">
+    <meta name="description" content="{% if description is defined %}{{description}}{% else %}{{constant('WEBSITE_DESCRIPTION')}}{% endif %}">
+    <!--    zone qui recevra les css additionnels-->
+    {% block css %}   {% endblock %}
+
+
+    <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+
+
+</head>
+<body>
+<div class="container">
+    <header class="row">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.php">{{ constant('WEBSITE_TITLE') }} {{ constant('WEBSITE_VERSION') }}!!</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link {% if menu=='category' %} active {% endif %}" aria-current="page" href="index.php">Catégories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if menu=='recette' %} active {% endif %}" href="index.php?controleur=recette&methode=lister">Recettes</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if menu=='recette_tableau' %} active {% endif %}" href="index.php?controleur=recette&methode=listerTableau">Recettes tableau</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+        {% block content %}{% endblock %}
+
+
+    <footer class="text-body-secondary py-5">
+        <div class="container">
+            <p class="mb-1">Ce site est un contre exemple. Il montre ce qu'il ne faut pas faire </p>
+            <p class="mb-0"> <a href="licence.php">Les licences des images</a></p>
+        </div>
+    </footer>
+    <!--    zone qui recevra les scripts additionnels-->
+    {% block script %}{% endblock %}
+</div>
+
+
+</body>
+</html>
+
+
+

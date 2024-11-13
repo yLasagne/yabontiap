@@ -1,0 +1,27 @@
+{% extends "base_template.twig" %}
+{% block title %}{{ title }} - {{ constant('WEBSITE_TITLE') }}{% endblock %}
+
+
+{% block content %}
+    <main class="row">
+        <h1>Les recettes</h1>
+        <div>
+            <div class="row row-cols-3 ">
+                {% for recette in recettes %}
+                    <div class="col">
+                        <a href="index.php?controleur=recette&methode=afficher&id={{ recette.id }}">
+                            <div class="card">
+                                <img src='image/{{ recette.image }}' width="100" height="auto" class="card-img-top"
+                                     alt="">
+                                <div class="card-body bg-primary">
+                                    <h5 class="card-title">{{ recette.nom }}</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+{% endblock %}
+

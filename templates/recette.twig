@@ -1,0 +1,28 @@
+{% extends "base_template.twig" %}
+{% block title %}{{ recette.nom }} - {{ constant('WEBSITE_TITLE') }}{% endblock %}
+
+
+{% block content %}
+    <main class="row">
+        <h1>{{ recette.nom }}</h1>
+        <div class="col-9">
+            <img src="image/{{ recette.image }}" class="img-thumbnail float-start" alt="">
+            <p class="text-body-primary">{{ recette.description }}</p>
+        </div>
+
+        <div class="col-3">
+            <?php
+
+            ?>
+            <div class="">
+                <h6>Ingrédients</h6>
+                <ul>
+                    {% for ingredient in recette.ingredientQuantifies %}
+                        <li>{{ ingredient.ingredient.nom }} - {{ ingredient.quantite }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+

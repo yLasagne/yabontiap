@@ -1,0 +1,35 @@
+{% extends "base_template.twig" %}
+{% block title %}Les catégories de recettes  - {{ constant('WEBSITE_TITLE') }} {% endblock %}
+
+
+{% block content %}
+<main class="row">
+    <h1 class="mycolor">Les catégories de recettes</h1>
+
+    <div>
+        <div class="row row-cols-3 ">
+
+            {% for categorie in categories %}
+                <div class="col">
+                    <a href="index.php?controleur=recette&methode=lister&id_categorie={{categorie.id}}">
+                        <div class="card">
+                            <img src='image/{{categorie.image}}' width="100" height="auto"
+                                 class="card-img-top" alt="">
+                            <div class="card-body bg-primary">
+                                <h5 class="card-title">{{ categorie.nom }}</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}
+
+
+
+
